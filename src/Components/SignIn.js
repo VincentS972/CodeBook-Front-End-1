@@ -60,7 +60,7 @@ const Signin = () => {
                     Submit
                 </Button>
                 <Row className="mb-3">
-                    <p> Don't have an account yet? </p>
+                    <p> Don't have an account yet? <a href="/Signup" >Sign Up</a> </p>
                 </Row>
                 </Form>
         </div>
