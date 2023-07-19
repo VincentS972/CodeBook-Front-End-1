@@ -16,8 +16,8 @@ const Footer = () => {
       >
         Follow us on Github!
       </h4>
-      <div class="footer__redes">
-        <ul class="footer__redes-wrapper">
+      <div className="footer__redes">
+        <ul className="footer__redes-wrapper">
           <li style={{ textAlign: "center", display: "grid" }}>
             <p>
               <img alt="Code" src={Code} width="30px" height="30px" />
