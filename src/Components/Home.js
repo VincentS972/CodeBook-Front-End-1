@@ -8,8 +8,41 @@ import logo from "./codebookbanner.png";
 import picture from "./codepic.jpeg";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function Home() {
+const Home = () => {
+  const Navigate = useNavigate();
+  const URL = `${process.env.REACT_APP_BACKEND_URI}/forum`;
+
+  const [forumInput, setForumInput] = useState({
+    Body: "",
+  });
+
+  //hangles the change in text inputs
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setForumInput({
+      ...forumInput,
+      [e.target.name]: value,
+    });
+  };
+
+  //handles the submit action
+  const handleSubmit = async (e) => {
+    console.log(forumInput);
+    e.preventDefault();
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(forumInput),
+    });
+
+    const data = await response.json();
+    console.log("checking data", data);
+    Navigate(`/forum`);
+  };
+
   return (
     <div style={{ margin: "auto" }}>
       <Container style={{ marginTop: "50px", textAlign: "center" }}>
@@ -63,11 +96,18 @@ function Home() {
               justifyItems: "center",
             }}
           >
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <h4 style={{ color: " #564256" }}>Post your questions here!</h4>
               <Form.Group className="mb-3">
-                <Form.Control as="textarea" rows={6}></Form.Control>
-                <Button variant="secondary">Post</Button>
+                <Form.Control
+                  as="textarea"
+                  rows={6}
+                  onChange={handleChange}
+                  name="Body"
+                ></Form.Control>
+                <Button variant="secondary" type="submit">
+                  Post
+                </Button>
               </Form.Group>
             </Form>
           </Col>
@@ -159,6 +199,6 @@ function Home() {
       </Container>
     </div>
   );
-}
+};
 
 export default Home;
