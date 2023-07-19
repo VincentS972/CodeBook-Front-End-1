@@ -36,5 +36,5 @@ const Forum = () => {
 
   return <div>{display}</div>;
 };
-
+//Fernanda needs it
 export default Forum;
