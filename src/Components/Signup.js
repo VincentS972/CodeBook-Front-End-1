@@ -39,13 +39,14 @@ const Signup = () => {
   };
   //handles the submit to create the profile in the database
   const handleSubmit = async (e) => {
+    console.log(profileInput)
     const response = await fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(profileInput),
     });
     if (response.status !== 201) console.log("error");
-    Navigate(`/Signin`);
+    Navigate(`/SignIn`);
   };
 
   return (
