@@ -39,12 +39,12 @@ function UpdateProfile () {
 
     const display = profileInput && (
         <form onSubmit={handleSubmit}>
-            <input required onChange={handleChange} value={profileInput.userName} name='Username' placeholder='Username' />
+            <input required onChange={handleChange} value={profileInput.userName} name='userName' placeholder='Username' />
             <input required onChange={handleChange} value={profileInput.firstName} name='firstName' placeholder='Fist Name' />
             <input required onChange={handleChange} value={profileInput.lastName} name='lastName' placeholder='Last name' />
             <input required onChange={handleChange} value={profileInput.emailAddress} name='emailAddress' placeholder='New Email' />
             <input required onChange={handleChange} value={profileInput.profilePicture} name='profilePicture' placeholder='New image' />
-            <input required onChange={handleChange} value={profileInput.password} name='Username' placeholder='New password' />
+            <input required onChange={handleChange} value={profileInput.password} name='password' placeholder='New password' />
             <input type='submit'/>
         </form>
     )
