@@ -106,7 +106,7 @@ const Signup = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
-              secureTextEntry=[true]
+              secureTextEntry={true}
               onChange={handleChange}
               name="password"
               placeholder="Password"
