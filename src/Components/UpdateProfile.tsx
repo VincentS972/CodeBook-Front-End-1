@@ -1,3 +1,4 @@
+import React from 'react'
 import {useState, useEffect }from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
@@ -18,7 +19,7 @@ function UpdateProfile () {
         fetchData()
     }, [id, URL])
 
-    const handleChange = (e) => {
+    const handleChange = (e: { target: { value: any; name: any } }) => {
         const value = e.target.value
         setProfileInput({
             ...profileInput,
@@ -26,7 +27,7 @@ function UpdateProfile () {
         })
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         const response = await fetch(URL, {
             method: 'PUT',

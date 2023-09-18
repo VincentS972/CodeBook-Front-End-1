@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 // import { FormGroup } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import React from "react";
 
 const Signin = () => {
   const Navigate = useNavigate();
@@ -17,7 +18,7 @@ const Signin = () => {
   });
 
   //hangles the change in text inputs
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { value: any; name: any; }; }) => {
     const value = e.target.value;
     setSigninInput({
       ...signinInput,
@@ -26,7 +27,7 @@ const Signin = () => {
   };
 
   //handles the submit action
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const response = await fetch(URL, {
       method: "POST",

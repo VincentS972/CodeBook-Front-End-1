@@ -7,6 +7,7 @@ import Forum from "./Components/Forum";
 import Profile from "./Components/Profile";
 import Footer from "./Components/Footer";
 import UpdateProfile from "./Components/UpdateProfile";
+import React from "react";
 
 
 function App() {

@@ -18,7 +18,7 @@ const Forum = () => {
   }, [URL]);
 
   //deletes the current profile from database
-  const handleDelete = async (e) => {
+  const handleDelete = async (_e: any) => {
     const response = await fetch(URL, {
       method: "delete",
     });

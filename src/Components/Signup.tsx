@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { FormGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Signup = () => {
   const Navigate = useNavigate();
@@ -22,7 +23,7 @@ const Signup = () => {
   const URL = `${process.env.REACT_APP_BACKEND_URI}/profile`;
 
   //function to handle the change in the textboxes
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { value: any; name: any; }; }) => {
     const value = e.target.value;
     setProfileInput({
       ...profileInput,
@@ -30,7 +31,7 @@ const Signup = () => {
     });
   };
   //function to handle cnahge in checkbox
-  const handleUpdateCheck = (e) => {
+  const handleUpdateCheck = (e: { target: { checked: any; name: any; }; }) => {
     const checked = e.target.checked;
     setProfileInput({
       ...profileInput,
@@ -38,7 +39,7 @@ const Signup = () => {
     });
   };
   //handles the submit to create the profile in the database
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     console.log(profileInput)
     const response = await fetch(URL, {
       method: "POST",
